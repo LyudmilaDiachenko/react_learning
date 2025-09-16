@@ -1,28 +1,35 @@
 import React from "react"
 import * as ReactDOMClient from "react-dom/client"
 
-const titleH1 = "Title H1"
-const placeholderTxt = "Help text!"
-const inputClick = () => console.log('Click')
-const mouseOver = () => console.log("Mouse over")
 
-const Header = () => {
-  return(
-    <header>
-      Шапка сауйту
-    </header>
-  )
+class Header extends React.Component {
+  render(){
+    return(
+      <header>
+        Шапка сауйту
+      </header>
+    )
+    }
 }
 
-const App = () => {
-  return (<div className="boxName">
-    <Header />
-    <Header />
-    <Header />
-        <h1>{titleH1}</h1>
-        <input placeholder={placeholderTxt} onClick={inputClick} onMouseOver={mouseOver}/>
-        <p>{placeholderTxt === "Help text" ? "Yes" : "No"}</p>
-</div>)
+class App extends React.Component {
+
+  titleH1 = "Title H1"
+  placeholderTxt = "Help text!"
+
+  render(){
+    return (<div className="boxName">
+      <Header />
+      <Header />
+      <Header />
+          <h1>{this.titleH1}</h1>
+          <input placeholder={this.placeholderTxt} onClick={this.inputClick} onMouseOver={this.mouseOver}/>
+          <p>{this.placeholderTxt === "Help text" ? "Yes" : "No"}</p>
+    </div>)
+    }
+
+  inputClick() {console.log('Click')}
+  mouseOver() {console.log("Mouse over")}
 }
 
 const app = ReactDOMClient.createRoot(document.getElementById("app"))
