@@ -6,7 +6,7 @@ const placeholderTxt = "Help text!"
 const inputClick = () => console.log('Click')
 const mouseOver = () => console.log("Mouse over")
 
-function Header(){
+const Header = () => {
   return(
     <header>
       Шапка сауйту
@@ -14,7 +14,7 @@ function Header(){
   )
 }
 
-function App() {
+const App = () => {
   return (<div className="boxName">
     <Header />
     <Header />
