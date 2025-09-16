@@ -4,10 +4,11 @@ import * as ReactDOMClient from "react-dom/client"
 
 class Header extends React.Component {
   render(){
-    return(
-      <header>
-        Шапка сауйту
-      </header>
+    return(<div>
+      <header>{this.props.title}</header>
+      <p>{this.props.suname}</p>
+      <li>{this.props.size}</li>
+    </div>
     )
     }
 }
@@ -19,9 +20,9 @@ class App extends React.Component {
 
   render(){
     return (<div className="boxName">
-      <Header />
-      <Header />
-      <Header />
+      <Header title="Шапка сайту"/>
+      <Header suname="Початок сайту"/>
+      <Header size="25px"/>
           <h1>{this.titleH1}</h1>
           <input placeholder={this.placeholderTxt} onClick={this.inputClick} onMouseOver={this.mouseOver}/>
           <p>{this.placeholderTxt === "Help text" ? "Yes" : "No"}</p>
