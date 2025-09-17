@@ -11,26 +11,30 @@ class App extends React.Component {
             userData: "",
         }
     
-        this.inputClick = this.inputClick.bind(this)
+    this.inputClick = this.inputClick.bind(this)
+    }
+    
+    componentDidUpdate(prevProp) {
+        if(this.state.helpText !== "Help")
+            console.log("Some")
     }
 
-  helpText = "Help text!"
-
-  render(){
-    return (<div className="boxName">
-      <Header title="Шапка сайту"/>
-      <Header suname="Початок сайту"/>
-      <Header size="25px"/>
-          <h1>{this.state.helpText}</h1>
-          <h2>{this.state.userData}</h2>
-          <input placeholder={this.state.helpText} 
-            onClick={this.inputClick} 
-            onMouseOver={this.mouseOver}
-            onChange={event => this.setState({userData: event.target.value})}
-          />
-          <p>{this.state.helpText === "Help text" ? "Yes" : "No"}</p>
-          <Image image={logo} /> 
-    </div>)
+    render(){
+        return (
+            <div className="boxName">
+                <Header title="Шапка сайту"/>
+                <Header suname="Початок сайту"/>
+                <Header size="25px"/>
+                    <h1>{this.state.helpText}</h1>
+                    <h2>{this.state.userData}</h2>
+                        <input placeholder={this.state.helpText} 
+                            onClick={this.inputClick} 
+                            onMouseOver={this.mouseOver}
+                            onChange={event => this.setState({userData: event.target.value})}
+                        />
+                        <p>{this.state.helpText === "Help text" ? "Yes" : "No"}</p>
+                <Image image={logo} alt="Kanao"/> 
+            </div>)
     }
 
   inputClick() {
