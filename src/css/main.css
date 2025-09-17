@@ -36,3 +36,8 @@ main .users{
     background-color: #3e8fa0;
     padding: 20px;
 }
+
+b{
+    font-weight: 700;
+    color: antiquewhite;
+}

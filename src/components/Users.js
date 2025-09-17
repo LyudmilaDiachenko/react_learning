@@ -20,12 +20,19 @@ class Users extends React.Component {
         }
     ]
     render(){
-        return (<div>
+        if(this.users.length > 0)
+            return (<div>
                     {this.users.map((us) => (<div className="users" key={us.id}>
                         <h3>{us.firstname} {us.lastname}</h3>
                         <p>{us.bio}</p>
+                        <b>{us.isHappy ?  "Щасливий:)" : "Недуже щасливий:("}</b>
                     </div>))}
                 </div>)
+        else
+            return (<div className="users">
+                    <h3>Користувачів немає</h3>
+                </div>)
+        
     }
 }
 
