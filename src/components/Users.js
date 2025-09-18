@@ -1,7 +1,10 @@
 import React from "react"
 
 class Users extends React.Component {
-    users = [
+    constructor(props){
+        super(props)
+        this.state ={
+            users: [
         {
             id: 1,
             firstname: "Kate",
@@ -19,10 +22,12 @@ class Users extends React.Component {
             isHappy: false
         }
     ]
+        }
+    }
     render(){
-        if(this.users.length > 0)
+        if(this.state.users.length > 0)
             return (<div>
-                    {this.users.map((us) => (<div className="users" key={us.id}>
+                    {this.state.users.map((us) => (<div className="users" key={us.id}>
                         <h3>{us.firstname} {us.lastname}</h3>
                         <p>{us.bio}</p>
                         <b>{us.isHappy ?  "Щасливий:)" : "Недуже щасливий:("}</b>
