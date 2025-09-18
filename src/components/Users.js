@@ -1,4 +1,5 @@
 import React from "react"
+import User from "./User"
 
 class Users extends React.Component {
     constructor(props){
@@ -27,12 +28,8 @@ class Users extends React.Component {
     render(){
         if(this.state.users.length > 0)
             return (<div>
-                    {this.state.users.map((us) => (<div className="users" key={us.id}>
-                        <h3>{us.firstname} {us.lastname}</h3>
-                        <p>{us.bio}</p>
-                        <b>{us.isHappy ?  "Щасливий:)" : "Недуже щасливий:("}</b>
-                    </div>))}
-                </div>)
+                    {this.state.users.map((user) => (<User key={user.id} user={user} />))}
+                   </div>)
         else
             return (<div className="users">
                     <h3>Користувачів немає</h3>
