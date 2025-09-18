@@ -1,6 +1,7 @@
 import React from "react"
 import Header from "./components/Header"
 import Users from "./components/Users"
+import AddUser from "./components/AddUser"
 
 class App extends React.Component {
 
@@ -12,6 +13,7 @@ class App extends React.Component {
                     <Users />
                 </main>
                 <aside>
+                    <AddUser />
                 </aside>        
             </div>
         )
