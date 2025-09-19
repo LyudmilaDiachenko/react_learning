@@ -17,12 +17,23 @@ class  User extends React.Component {
                     className="delete-icon" />
                 <IoBuildSharp onClick={() => this.setState({editForm: true})} 
                     className="edit-icon" />
-                <h3>{this.props.user.firstname} {this.props.user.lastname}</h3>
+                <h3>{this.props.user.firstname} {this.props.user.lastname} {this.props.user.id}</h3>
                 <p>{this.props.user.bio}</p>
                 <p>{this.props.user.age} років</p>
                 <b>{this.props.user.isHappy ?  "Щасливий:)" : "Недуже щасливий:("}</b>
 
-                {this.state.editForm && <AddUser onAdd={this.props.onEdit}/>}
+                {
+                    this.state.editForm ? 
+                    <AddUser 
+                        user={this.props.user} 
+                        onAdd={
+                            el => {
+                               this.props.onEdit(el)
+                               this.setState({editForm: false})
+                            }
+                        } 
+                    /> : null
+                }
 
             </div>
         )
