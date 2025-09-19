@@ -36,10 +36,11 @@ class App extends React.Component {
             <div>
                 <Header title="Список користувачів" />
                 <main>
-                    <Users users={this.state.users} 
-                    onDelete={this.deleteUser}
-                    onEdit={this.editUser}
-                />
+                    <Users 
+                        users={this.state.users} 
+                        onDelete={this.deleteUser}
+                        onEdit={this.editUser} 
+                    />
                 </main>
                 <aside>
                     <AddUser onAdd={this.addUser} />
@@ -49,8 +50,10 @@ class App extends React.Component {
     }
 
     addUser(user){
-        const id = this.state.users.length + 1
-        this.setState({users: [...this.state.users, {id, ...user}]})
+        const id = this.state.users.reduce((acc, el) => el.id > acc ? el.id : acc, 0) + 1
+        this.setState({users: 
+            [...this.state.users, {id, ...user}]
+        })
     }
 
     deleteUser(id){
@@ -60,7 +63,13 @@ class App extends React.Component {
     }
 
     editUser(user){
-        console.log(user)
+        this.setState({
+            users: 
+                this.state.users
+                .filter(el => el.id != user.id)
+                .concat(user)
+                .sort((a, b) => a.id > b.id ? 1 : -1)
+        })
     }
 
 }
