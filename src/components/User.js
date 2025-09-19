@@ -10,6 +10,7 @@ class  User extends React.Component {
                 <IoBuildSharp className="edit-icon" />
                 <h3>{this.props.user.firstname} {this.props.user.lastname}</h3>
                 <p>{this.props.user.bio}</p>
+                <p>{this.props.user.age} років</p>
                 <b>{this.props.user.isHappy ?  "Щасливий:)" : "Недуже щасливий:("}</b>
             </div>
         )
